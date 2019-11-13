@@ -37,9 +37,7 @@ class ProductTable extends React.Component {
 
     const start = Date.now();
     fetch(
-      `${
-        process.env.PRODUCT_SERVICE_BASE_URL
-      }/api/products?pageSize=500&page=${page}`
+      `${process.env.PRODUCT_SERVICE_BASE_URL}/api/products?pageSize=500&page=${page}`
     )
       .then(data => {
         this.props.setTiming(Date.now() - start);
