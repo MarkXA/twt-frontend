@@ -15,11 +15,14 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    INVENTORY_SERVICE_BASE_URL=https://twtedi1ainventory.azurewebsites.net/
-    PRODUCT_SERVICE_BASE_URL=https://twtedi1aproduct.azurewebsites.net/
-    npm install
-    npm run build
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      INVENTORY_SERVICE_BASE_URL=https://twtedi1ainventory.azurewebsites.net/
+      PRODUCT_SERVICE_BASE_URL=https://twtedi1aproduct.azurewebsites.net/
+      npm install
+      npm run build
   displayName: 'npm install and build'
 
 - task: ArchiveFiles@2
