@@ -19,8 +19,16 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      cat > .env << EOF
       INVENTORY_SERVICE_BASE_URL=https://twtedi1ainventory.azurewebsites.net/
       PRODUCT_SERVICE_BASE_URL=https://twtedi1aproduct.azurewebsites.net/
+      EOF
+  displayName: 'Set up environment'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
       npm install
       npm run build
   displayName: 'npm install and build'
